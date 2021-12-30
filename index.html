@@ -21,6 +21,16 @@
     <link rel="stylesheet" href="frontend/styles/neww.css" />
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="frontend/styles/responsive.css" />
+
+    <style>
+      #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    </style>
   </head>
   <body>
     <section class="d-none" style="min-height: 100vh; background-image: url('frontend/images/background3.png'); background-size: cover; padding: 50px 0 20px; background-position-x: left">
@@ -60,7 +70,52 @@
       </div>
     </section>
 
-    <section style="min-height: 100vh; background-image: url('frontend/images/background3.png'); padding: 50px 0 20px; background-size: cover; background-position: center">
+    <section class="d-none" style="min-height: 100vh; background-image: url('frontend/images/background3.png'); padding: 50px 0 20px; background-size: cover; background-position: center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-10 text-center text-white">
+            <img src="frontend/images/megarichicon.png" width="80px" alt="" />
+            <p class="font-weight-bold mb-1">@megarich.io</p>
+            <p><small>Coming Soon NFT - Digital Solution for your business</small></p>
+
+            <div class="d-flex justify-content-center my-4">
+              <a href="https://www.instagram.com/megarich.official/" class="text-white" target="_blank">
+                <i class="fab fa-instagram fa-lg mx-2"></i>
+              </a>
+              <a href="https://twitter.com/megarich_io" class="text-white" target="_blank">
+                <i class="fab fa-twitter fa-lg mx-2"></i>
+              </a>
+              <a href="https://www.youtube.com/channel/UCq-B6QJSxafl-oNFSxfo1TQ" class="text-white" target="_blank">
+                <i class="fab fa-youtube fa-lg mx-2"></i>
+              </a>
+            </div>
+
+            <a class="text-decoration-none mb-4" target="_blank" href="https://megarich.io/">
+              <div class="kotak mb-4 rounded-pill">Website Megarich</div>
+            </a>
+            <a class="text-decoration-none mb-4" target="_blank" href="https://discord.gg/39udSp6nqS">
+              <div class="kotak mb-4 rounded-pill">Discord</div>
+            </a>
+            <a class="text-decoration-none mb-4" target="_blank" href="https://opensea.io/Megarich">
+              <div class="kotak mb-4 rounded-pill">OpenSea</div>
+            </a>
+            <a class="text-decoration-none mb-4" target="_blank" href="https://medium.com/">
+              <div class="kotak mb-4 rounded-pill">Medium</div>
+            </a>
+            <a class="text-decoration-none mb-4" target="_blank" href="https://www.facebook.com/groups/3193410210890125">
+              <div class="kotak mb-4 rounded-pill">Facebook Group</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <video autoplay muted loop id="myVideo">
+      <source src="frontend/images/DESKTOP.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <section style="padding: 30px 0 20px">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-3 col-10 text-center text-white">
