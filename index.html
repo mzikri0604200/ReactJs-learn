@@ -110,8 +110,13 @@
       </div>
     </section>
 
-    <video autoplay muted loop id="myVideo">
+    <video class="d-none d-lg-block" autoplay muted loop id="myVideo">
       <source src="frontend/images/DESKTOP.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+
+    <video class="d-block d-lg-none" autoplay muted loop id="myVideo">
+      <source src="frontend/images/MOBILE.mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
 
