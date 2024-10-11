@@ -2,190 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Megarich - Big Leap Technology</title>
-
-    <!-- Boostrap CSS -->
-    <link rel="stylesheet" href="frontend/libraries/bootstrap/css/bootstrap.min.css" />
-    <!--  font awesome icons  -->
-    <link rel="stylesheet" href="frontend/styles/all.min.css" />
-
-    <!-- Montserrat + Source Sans Pro -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="frontend/styles/main.css" />
-    <link rel="stylesheet" href="frontend/styles/neww.css" />
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="frontend/styles/responsive.css" />
-
-    <style>
-      #myVideoDesktop {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-      }
-      #myVideo {
-        position: fixed;
-        /* right: 0; */
-        /* bottom: 0; */
-        min-width: 100%;
-        min-height: 100%;
-      }
-    </style>
+    <title>Learn React</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://id.react.dev/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://id.react.dev/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://id.react.dev/favicon-16x16.png" />
   </head>
   <body>
-    <section class="d-none" style="min-height: 100vh; background-image: url('frontend/images/background3.png'); background-size: cover; padding: 50px 0 20px; background-position-x: left">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-3 col-10 text-center text-white">
-            <img src="frontend/images/megarichicon.png" width="80px" alt="" />
-            <p class="font-weight-bold mb-1">@megarich.io</p>
-            <p><small>Coming Soon NFT - Digital Solution for your business</small></p>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      function createTitle(title) {
+        return;
+      }
 
-            <div class="d-flex justify-content-center my-4">
-              <a href="https://www.instagram.com/megarich.official/" class="text-white" target="_blank">
-                <i class="fab fa-instagram fa-lg mx-2"></i>
-              </a>
-              <a href="https://www.instagram.com/megarich.official/" class="text-white" target="_blank">
-                <i class="fab fa-twitter fa-lg mx-2"></i>
-              </a>
-            </div>
+      function Header({ title, title2 }) {
+        return (
+          <>
+            <h6>{title}</h6>
+            <h5>{title2 ? title2 : 'Default Title'}</h5>
+            <h6>{`Coool ${title}`}</h6>
+          </>
+        );
+      }
 
-            <a class="text-decoration-none mb-4" target="_blank" href="https://megarich.io/">
-              <div class="kotak mb-4 rounded-pill">Website Megarich</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://discord.gg/39udSp6nqS">
-              <div class="kotak mb-4 rounded-pill">Discord</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://opensea.io/Megarich">
-              <div class="kotak mb-4 rounded-pill">OpenSea</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://medium.com/">
-              <div class="kotak mb-4 rounded-pill">Medium</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://www.facebook.com/groups/3193410210890125">
-              <div class="kotak mb-4 rounded-pill">Facebook Group</div>
-            </a>
+      const [likes, setlikes] = React.useState(0);
+      const names = ['Indonesia', 'Bahrain', 'Arab Saudi', 'Jepang', 'Australia', 'China'];
+      function Homepage() {
+        function handleCLick() {
+          setlikes(likes + 1);
+        }
+        return (
+          <div>
+            <Header title="React Kualifikasi 2026 " />
+            <ul>
+              {names.map((name, key) => (
+                <li key={key}>{name}</li>
+              ))}
+            </ul>
+            <button onClick={handleCLick}>Like ({likes})</button>
           </div>
-        </div>
-      </div>
-    </section>
+        );
+      }
 
-    <section class="d-none" style="min-height: 100vh; background-image: url('frontend/images/background3.png'); padding: 50px 0 20px; background-size: cover; background-position: center">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-3 col-10 text-center text-white">
-            <img src="frontend/images/megarichicon.png" width="80px" alt="" />
-            <p class="font-weight-bold mb-1">@megarich.io</p>
-            <p><small>Coming Soon NFT - Digital Solution for your business</small></p>
-
-            <div class="d-flex justify-content-center my-4">
-              <a href="https://www.instagram.com/megarich.official/" class="text-white" target="_blank">
-                <i class="fab fa-instagram fa-lg mx-2"></i>
-              </a>
-              <a href="https://twitter.com/megarich_io" class="text-white" target="_blank">
-                <i class="fab fa-twitter fa-lg mx-2"></i>
-              </a>
-              <a href="https://www.youtube.com/channel/UCq-B6QJSxafl-oNFSxfo1TQ" class="text-white" target="_blank">
-                <i class="fab fa-youtube fa-lg mx-2"></i>
-              </a>
-            </div>
-
-            <a class="text-decoration-none mb-4" target="_blank" href="https://megarich.io/">
-              <div class="kotak mb-4 rounded-pill">Website Megarich</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://discord.gg/39udSp6nqS">
-              <div class="kotak mb-4 rounded-pill">Discord</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://opensea.io/Megarich">
-              <div class="kotak mb-4 rounded-pill">OpenSea</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://medium.com/">
-              <div class="kotak mb-4 rounded-pill">Medium</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://www.facebook.com/groups/3193410210890125">
-              <div class="kotak mb-4 rounded-pill">Facebook Group</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <video class="d-none d-lg-block" autoplay muted loop id="myVideoDesktop">
-      <source src="frontend/images/DESKTOP.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
-    </video>
-
-    <video class="d-block d-lg-none" autoplay muted loop id="myVideo">
-      <source src="frontend/images/MOBILE.mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
-    </video>
-
-    <section style="padding: 30px 0 20px">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-3 col-10 text-center text-white">
-            <img src="frontend/images/megarichicon.png" width="80px" alt="" />
-            <p class="font-weight-bold mb-1">@megarich.io</p>
-            <p><small>Coming Soon NFT - Digital Solution for your business</small></p>
-
-            <div class="d-flex justify-content-center my-4">
-              <a href="https://www.instagram.com/megarich.official/" class="text-white" target="_blank">
-                <i class="fab fa-instagram fa-lg mx-2"></i>
-              </a>
-              <a href="https://twitter.com/megarich_io" class="text-white" target="_blank">
-                <i class="fab fa-twitter fa-lg mx-2"></i>
-              </a>
-              <a href="https://www.youtube.com/channel/UCq-B6QJSxafl-oNFSxfo1TQ" class="text-white" target="_blank">
-                <i class="fab fa-youtube fa-lg mx-2"></i>
-              </a>
-            </div>
-
-            <a class="text-decoration-none mb-4" target="_blank" href="https://megarich.io/">
-              <div class="kotak mb-4 rounded-pill">Website Megarich</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://discord.gg/39udSp6nqS">
-              <div class="kotak mb-4 rounded-pill">Discord</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://opensea.io/Megarich">
-              <div class="kotak mb-4 rounded-pill">OpenSea</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://medium.com/@Megarich">
-              <div class="kotak mb-4 rounded-pill">Medium</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://www.facebook.com/groups/3193410210890125">
-              <div class="kotak mb-4 rounded-pill">Facebook Group</div>
-            </a>
-            <a class="text-decoration-none mb-4" target="_blank" href="https://t.me/megarichcommunity">
-              <div class="kotak mb-4 rounded-pill">Telegram Official</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script src="frontend/images/DESKTOP.mp4"></script>
-    <textarea name="tes12" id="tes12" cols="40" rows="40">
-      <p class="bg-area">Satu dengan bekesai </p>
-      <head>googleapis</head>
-      <link rel="stylesheet" href="style.css">
-    
-      <select name="awesome" id="awesome" size="size" hidden aria-selected="false" style="margin: auto;" disabled="disabled" slot="123" spellcheck="false" aria-setsize="false" aria-grabbed="hoki" aria-colspan="80" aria-sort="ascending" aria-busy="false" aria-controls="sarata" draggable="true" exportparts="d-block" aria-labelledby="Sans" is="satu" itemid="stu" part="hai" autocomplete="tel-area-code
-">
-      
-      
-      </select>
-    </textarea>
-
-    <script src="frontend/libraries/jquery/jquery-3.5.1.min.js"></script>
-    <script src="frontend/libraries/bootstrap/js/bootstrap.min.js"></script>
-    <script src="frontend/libraries/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="frontend/scripts/main.js"></script>
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<Homepage />);
+    </script>
   </body>
 </html>
