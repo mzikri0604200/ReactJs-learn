@@ -36,9 +36,9 @@
         const [error, setError] = React.useState(null);
         const [status, setStatus] = React.useState('typing');
 
-        if (status === 'success') {
-          return <h1>Itu Benar!</h1>;
-        }
+        // if (status === 'success') {
+        //   return <h1>Itu Benar!</h1>;
+        // }
 
         async function handleSubmit(e) {
           e.preventDefault();
@@ -54,6 +54,12 @@
 
         function handleTextareaChange(e) {
           setAnswer(e.target.value);
+        }
+        function reset(e) {
+          e.preventDefault();
+          setStatus('typing');
+          setError(null);
+          setAnswer('');
         }
 
         function submitForm(answer) {
@@ -71,15 +77,24 @@
         }
 
         return (
-          <div>
-            <h2>Kuis Kota</h2>
-            <p>Di kota manakah terdapat papan reklame yang mengubah udara menjadi air minum?</p>
-            <form onSubmit={handleSubmit}>
-              <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'} />
-              <br />
-              <button disabled={answer.length === 0 || status === 'submitting'}>Submit</button>
-              {error !== null && <p className="Error">{error.message}</p>}
-            </form>
+          <>
+            {status === 'success' ? (
+              <>
+                <h1>Itu Benar!</h1>
+                <button onClick={reset}>Retry</button>
+              </>
+            ) : (
+              <>
+                <h2>Kuis Kota</h2>
+                <p>Di kota manakah terdapat papan reklame yang mengubah udara menjadi air minum?</p>
+                <form onSubmit={handleSubmit}>
+                  <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'} />
+                  <br />
+                  <button disabled={answer.length === 0 || status === 'submitting'}>Submit</button>
+                  {error !== null && <p className="Error">{error.message}</p>}
+                </form>
+              </>
+            )}
 
             <Header title="React Kualifikasi 2026 " />
             <ul>
@@ -88,7 +103,7 @@
               ))}
             </ul>
             <button onClick={handleCLick}>Like ({likes})</button>
-          </div>
+          </>
         );
       }
 
