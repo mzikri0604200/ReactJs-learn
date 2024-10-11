@@ -14,10 +14,6 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      function createTitle(title) {
-        return;
-      }
-
       function Header({ title, title2 }) {
         return (
           <>
@@ -31,11 +27,60 @@
       function Homepage() {
         const names = ['Indonesia', 'Bahrain', 'Arab Saudi', 'Jepang', 'Australia', 'China'];
         const [likes, setlikes] = React.useState(0);
+
         function handleCLick() {
           setlikes(likes + 1);
         }
+
+        const [answer, setAnswer] = React.useState('');
+        const [error, setError] = React.useState(null);
+        const [status, setStatus] = React.useState('typing');
+
+        if (status === 'success') {
+          return <h1>Itu Benar!</h1>;
+        }
+
+        async function handleSubmit(e) {
+          e.preventDefault();
+          setStatus('submitting');
+          try {
+            await submitForm(answer);
+            setStatus('success');
+          } catch (err) {
+            setStatus('typing');
+            setError(err);
+          }
+        }
+
+        function handleTextareaChange(e) {
+          setAnswer(e.target.value);
+        }
+
+        function submitForm(answer) {
+          // Anggap kode ini melakukan *request* ke jaringan.
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              let shouldError = answer.toLowerCase() !== 'lima';
+              if (shouldError) {
+                reject(new Error('Tebakan yang bagus tetapi jawaban salah. Silahkan coba lagi!'));
+              } else {
+                resolve();
+              }
+            }, 1500);
+          });
+        }
+
         return (
           <div>
+            <h2>Kuis Kota</h2>
+            <p>Di kota manakah terdapat papan reklame yang mengubah udara menjadi air minum?</p>
+            <form onSubmit={handleSubmit}>
+              <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'} />
+              <br />
+              <button disabled={answer.length === 0 || status === 'submitting'}>Submit</button>
+              {error !== null && <p className="Error">{error.message}</p>}
+            </form>
+
             <Header title="React Kualifikasi 2026 " />
             <ul>
               {names.map((name, key) => (
