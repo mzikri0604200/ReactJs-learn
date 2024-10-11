@@ -28,9 +28,9 @@
         );
       }
 
-      const [likes, setlikes] = React.useState(0);
-      const names = ['Indonesia', 'Bahrain', 'Arab Saudi', 'Jepang', 'Australia', 'China'];
       function Homepage() {
+        const names = ['Indonesia', 'Bahrain', 'Arab Saudi', 'Jepang', 'Australia', 'China'];
+        const [likes, setlikes] = React.useState(0);
         function handleCLick() {
           setlikes(likes + 1);
         }
