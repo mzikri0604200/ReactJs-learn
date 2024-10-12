@@ -39,6 +39,12 @@
         function handleCLick() {
           setlikes(likes + 1);
         }
+        function handleCLickMin() {
+          setlikes(likes - 1);
+        }
+        function resetCounter() {
+          setlikes(0);
+        }
 
         const [answer, setAnswer] = React.useState('');
         const [error, setError] = React.useState(null);
@@ -101,6 +107,14 @@
                 </form>
               </>
             )}
+
+            <Header title="Counter " />
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
+              <Button onClick={handleCLickMin}>-</Button>
+              <p>{likes}</p>
+              <Button onClick={handleCLick}>+</Button>
+            </div>
+            <Button onClick={resetCounter}>Reset</Button>
 
             <Header title="React Kualifikasi 2026 " />
             <ul>
