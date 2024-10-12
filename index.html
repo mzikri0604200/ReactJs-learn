@@ -14,13 +14,21 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-      function Header({ title, title2 }) {
+      function Header({ title }) {
         return (
           <>
-            <h2>{title}</h2>
-            <h3>{title2 ? title2 : 'Default Title'}</h3>
-            <h2>{`Coool ${title}`}</h2>
+            <h2>{/* title */}</h2>
+            <h2>{title ? title : 'Default Title'}</h2>
+            <h2>{/* `Coool ${title}` */}</h2>
           </>
+        );
+      }
+
+      function Button({ onClick, children, disabled = false }) {
+        return (
+          <button disabled={disabled} onClick={onClick}>
+            {children}
+          </button>
         );
       }
 
@@ -36,10 +44,6 @@
         const [error, setError] = React.useState(null);
         const [status, setStatus] = React.useState('typing');
 
-        // if (status === 'success') {
-        //   return <h1>Itu Benar!</h1>;
-        // }
-
         async function handleSubmit(e) {
           e.preventDefault();
           setStatus('submitting');
@@ -49,12 +53,14 @@
           } catch (err) {
             setStatus('typing');
             setError(err);
+            setAnswer('');
           }
         }
 
         function handleTextareaChange(e) {
           setAnswer(e.target.value);
         }
+
         function reset(e) {
           e.preventDefault();
           setStatus('typing');
@@ -66,7 +72,7 @@
           // Anggap kode ini melakukan *request* ke jaringan.
           return new Promise((resolve, reject) => {
             setTimeout(() => {
-              let shouldError = answer.toLowerCase() !== 'lima';
+              let shouldError = answer.toLowerCase() !== 'tua';
               if (shouldError) {
                 reject(new Error('Tebakan yang bagus tetapi jawaban salah. Silahkan coba lagi!'));
               } else {
@@ -80,17 +86,17 @@
           <>
             {status === 'success' ? (
               <>
-                <h1>Itu Benar!</h1>
-                <button onClick={reset}>Retry</button>
+                <Header title="Itu Benar!" />
+                <Button onClick={reset}>Retry</Button>
               </>
             ) : (
               <>
-                <h2>Kuis Kota</h2>
+                <Header title="Kuis Kota" />
                 <p>Di kota manakah terdapat papan reklame yang mengubah udara menjadi air minum?</p>
                 <form onSubmit={handleSubmit}>
                   <textarea value={answer} onChange={handleTextareaChange} disabled={status === 'submitting'} />
                   <br />
-                  <button disabled={answer.length === 0 || status === 'submitting'}>Submit</button>
+                  <Button disabled={answer.length === 0 || status === 'submitting'}>Submit</Button>
                   {error !== null && <p className="Error">{error.message}</p>}
                 </form>
               </>
@@ -102,7 +108,7 @@
                 <li key={key}>{name}</li>
               ))}
             </ul>
-            <button onClick={handleCLick}>Like ({likes})</button>
+            <Button onClick={handleCLick}>Like ({likes})</Button>
           </>
         );
       }
