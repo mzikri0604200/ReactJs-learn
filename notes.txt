@@ -1,0 +1,7 @@
+Vite.js
+npm install -g pnpm
+pnpm create vite
+-react
+-javascript
+pnpm install
+pnpm run dev
