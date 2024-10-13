@@ -110,11 +110,17 @@
 
             <Header title="Counter " />
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
-              <Button onClick={handleCLickMin}>-</Button>
-              <p>{likes}</p>
-              <Button onClick={handleCLick}>+</Button>
+              <Button disabled={likes == 'done!'} onClick={handleCLickMin}>
+                -
+              </Button>
+              <p>{likes >= 10 || likes < 0 ? setlikes('done!') : likes}</p>
+              <Button disabled={likes == 'done!'} onClick={handleCLick}>
+                +
+              </Button>
             </div>
-            <Button onClick={resetCounter}>Reset</Button>
+            <Button disabled={likes !== 'done!'} onClick={resetCounter}>
+              Reset
+            </Button>
 
             <Header title="React Kualifikasi 2026 " />
             <ul>
