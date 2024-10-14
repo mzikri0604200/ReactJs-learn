@@ -1,7 +1,10 @@
-Vite.js
+React X Vite 
 npm install -g pnpm
 pnpm create vite
 -react
 -javascript
 pnpm install
 pnpm run dev
+
+React X Next 
+npm install react@latest react-dom@latest next@latest
