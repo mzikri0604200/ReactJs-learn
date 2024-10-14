@@ -2,7 +2,13 @@
 #-------------------------
 /nbproject/
 .idea/*
+
+# dependencies
 node_modules/
+
+# next.js
+/.next/
+/out/
 
 ## Sublime Text cache files
 *.tmlanguage.cache
