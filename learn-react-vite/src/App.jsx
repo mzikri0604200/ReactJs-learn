@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import Header from './components/Header';
+
+// import Header from './components/Header';
+// import ButtonLike from './components/ButtonLike';
+import Board from './pages/TicTacToe';
 
 function App() {
-  const [likes, setLikes] = useState(0);
-  function handleClick() {
-    setLikes(likes + 1);
-  }
   return (
     <>
-      <Header author="React 2023" />
-      <button onClick={handleClick}>Like ({likes})</button>
+      {/* <Header author="React 2023" />
+      <ButtonLike>Like</ButtonLike> */}
+      <Board />
     </>
   );
 }
