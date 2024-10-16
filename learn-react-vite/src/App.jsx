@@ -12,9 +12,9 @@ function App() {
       <ButtonLike>Like</ButtonLike> */}
       <Board />
       <CardProduct>
-        <CardProduct.Header />
-        <CardProduct.Body />
-        <CardProduct.Footer />
+        <CardProduct.Header title="Title Card" />
+        <CardProduct.Body imgLink="https://picsum.photos/500/280?r=1" />
+        <CardProduct.Footer price="51.000" />
       </CardProduct>
     </>
   );
