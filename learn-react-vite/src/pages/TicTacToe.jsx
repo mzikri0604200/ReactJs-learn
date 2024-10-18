@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import Header from '../components/Header';
+import ButtonLike from '../components/ButtonLike';
 import './style.css';
 import { useState } from 'react';
 
@@ -63,6 +62,9 @@ export default function Board() {
 
   return (
     <>
+      <Header author="React 2023" />
+      <ButtonLike>Like</ButtonLike>
+
       <div className="status">{status}</div>
       <div className="board-row">
         <Square val={squares[0]} onSquareClick={() => handleClick(0)} />

@@ -6,7 +6,7 @@ export default function ButtonLike({ children }) {
     setLikes(likes + 1);
   }
   return (
-    <button onClick={handleClick}>
+    <button className="btn btn-secondary" onClick={handleClick}>
       {children} ({likes})
     </button>
   );
