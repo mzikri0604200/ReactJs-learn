@@ -7,7 +7,8 @@ import ErrorPage from './pages/404.jsx';
 
 const router = createBrowserRouter([
   {
-    path: process.env.PUBLIC_URL + '/',
+    // path: process.env.PUBLIC_URL + '/',
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
   },
